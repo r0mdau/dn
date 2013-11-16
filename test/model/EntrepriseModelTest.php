@@ -27,7 +27,7 @@ class EntrepriseModelTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue(EntrepriseModel::exist('EPSI'));
     }
     
-    public function testJePeuxRécupereLIdDUneEntreprise(){
+    public function testJePeuxRecupereLIdDUneEntreprise(){
         EntrepriseModel::add($this->entreprise);
         $this->assertEquals(1, EntrepriseModel::getId('IBM'));
         
