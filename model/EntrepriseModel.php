@@ -14,5 +14,10 @@
             return self::$lastId;
         }
         
+        public static function exist($entreprise){
+            $var = Db::querySingle('SELECT id FROM entreprise WHERE nom=\''.$entreprise.'\'');
+            return isset($var->id);
+        }
+        
         private static $lastId;
     }
