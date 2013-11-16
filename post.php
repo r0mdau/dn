@@ -2,10 +2,11 @@
     require_once('autoload.php');
         
     if(formulaireComplet($_POST)){
-        $_POST = Secu::secuMySql($_POST);
+        $_POST = Secu::secuMySql($_POST);        
+        $entreprise = new Entreprise($_POST['entreprise']);
         
-        if(!EntrepriseModel::exist($_POST['entreprise'])){
-            EntrepriseModel::add($_POST['entreprise']);
+        if(!EntrepriseModel::exist($_POST['entreprise'])){            
+            EntrepriseModel::add($entreprise);
             $entreprise_id = EntrepriseModel::getLastId();
         }else{
             $entreprise_id = EntrepriseModel::getId($_POST['entreprise']);
