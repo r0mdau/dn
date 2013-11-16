@@ -9,6 +9,9 @@ class EntrepriseTest extends PHPUnit_Framework_TestCase {
     
     public function testJePeuxRecupererLeNomDeLEntreprise() {        
         $this->assertEquals('IBM', $this->entreprise->getNom());
+        
+        $this->entreprise = new Entreprise('EPSI');
+        $this->assertEquals('EPSI', $this->entreprise->getNom());
     }
     
     private $entreprise;
