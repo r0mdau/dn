@@ -3,7 +3,7 @@
     {
         public static function add($entreprise){
             self::$lastId = Db::queryGetId( 'INSERT INTO entreprise (nom)
-                                            VALUES (\''.$entreprise->getNom().'\')');
+                                            VALUES (\''.$entreprise.'\')');
             if(self::$lastId != false)
                 return true;
             else

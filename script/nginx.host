@@ -1,0 +1,19 @@
+server {
+    listen   80;
+    root /PATH/dn;
+    index index.php;
+    server_name HOST;
+
+    error_page 403 /403.php;
+    error_page 404 /404.php;
+
+    rewrite ^/merci$ /info.php last;
+    rewrite ^/erreur /info.php last;
+    rewrite ^/accueil /index.php last;
+
+    location ~ ^(.+?\.php)(/.*)?$ {
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_index index.php;
+        include fastcgi_params;
+    }
+}
