@@ -7,7 +7,7 @@ class AdherentTest extends PHPUnit_Framework_TestCase {
         $this->adherent = new Adherent('Philippe', 'Dupont', 15);
     }
     
-    public function testJePeuxRécupérerLesInfosDUnAdherent() {        
+    public function testJePeuxRecupererLesInfosDUnAdherent() {        
         $this->assertEquals('Philippe', $this->adherent->getNom());
         $this->assertEquals('Dupont', $this->adherent->getPrenom());
         $this->assertEquals(15, $this->adherent->getIdEntreprise());
