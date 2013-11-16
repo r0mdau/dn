@@ -11,6 +11,7 @@ class AdherentModelTest extends PHPUnit_Framework_TestCase {
     public function tearDown(){
         Db::query('TRUNCATE TABLE adherent');
         Db::query('DELETE FROM entreprise');
+        Db::query('ALTER TABLE  entreprise AUTO_INCREMENT =1');
     }
     
     public function testJePeuxAjouterUnAdherent() {

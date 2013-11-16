@@ -2,8 +2,8 @@
     class EntrepriseModel
     {
         public static function add($entreprise){
-            self::$lastId = Db::queryGetId(   'INSERT INTO entreprise (nom)
-                                VALUES (\''.$entreprise->getNom().'\')');
+            self::$lastId = Db::queryGetId( 'INSERT INTO entreprise (nom)
+                                            VALUES (\''.$entreprise->getNom().'\')');
             if(self::$lastId != false)
                 return true;
             else
@@ -17,6 +17,11 @@
         public static function exist($entreprise){
             $var = Db::querySingle('SELECT id FROM entreprise WHERE nom=\''.$entreprise.'\'');
             return isset($var->id);
+        }
+        
+        public function getId($entreprise){
+            $var = Db::querySingle('SELECT id FROM entreprise WHERE nom=\''.$entreprise.'\'');
+            return isset($var->id) ? $var->id : null;
         }
         
         private static $lastId;
