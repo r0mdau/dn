@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `entreprise` (
 -- Table structure for table `personne`
 --
 
-CREATE TABLE IF NOT EXISTS `personne` (
+CREATE TABLE IF NOT EXISTS `adherent` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `prenom` varchar(100) CHARACTER SET utf8 NOT NULL,
   `nom` varchar(100) CHARACTER SET utf8 NOT NULL,
@@ -56,8 +56,8 @@ CREATE TABLE IF NOT EXISTS `personne` (
 --
 -- Constraints for table `personne`
 --
-ALTER TABLE `personne`
-  ADD CONSTRAINT `personne_ibfk_1` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `adherent`
+  ADD CONSTRAINT `adherent_ibfk_1` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
