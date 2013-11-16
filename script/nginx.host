@@ -10,6 +10,7 @@ server {
     rewrite ^/merci$ /info.php last;
     rewrite ^/erreur /info.php last;
     rewrite ^/accueil /index.php last;
+    rewrite ^/resultats /resultats.php last;
 
     location ~ ^(.+?\.php)(/.*)?$ {
         fastcgi_pass unix:/var/run/php5-fpm.sock;
