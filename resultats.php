@@ -17,7 +17,7 @@
                     <div id="liste" class="well">
                         
                     </div>
-                    <div id="compteur" class="text-center">
+                    <div id="compteur">
                         
                     </div>
                 </div>
