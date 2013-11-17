@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `adherent` (
   `prenom` varchar(100) CHARACTER SET utf8 NOT NULL,
   `nom` varchar(100) CHARACTER SET utf8 NOT NULL,
   `id_entreprise` int(11) NOT NULL,
-  `new` int(1) NOT NULL DEFAULT '1',
+  `etat` int(1) NOT NULL DEFAULT '1',
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `id_entreprise` (`id_entreprise`)
