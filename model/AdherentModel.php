@@ -11,6 +11,11 @@
             return isset($res->id) ? new Adherent($res->id, $res->prenom, $res->nom, $res->id_entreprise, $res->etat, $res->date) : '';
         }
         
+        public static function getPremierNouveau(){
+            $res = Db::querySingle('SELECT * FROM adherent WHERE etat=1 ORDER BY date LIMIT 1');
+            return isset($res->id) ? new Adherent($res->id, $res->prenom, $res->nom, $res->id_entreprise, $res->etat, $res->date) : '';
+        }
+        
         public static function nombreTotal(){
             $res = Db::querySingle('SELECT COUNT(*) nb FROM adherent');
             return isset($res->nb) ? $res->nb : 0;
