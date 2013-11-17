@@ -15,9 +15,18 @@
                     <div id="liste" class="well">
                         
                     </div>
+                    <div id="compteur">
+                        
+                    </div>
                 </div>
                 <div class="col-xs-6 col-md-4"></div>
             </div>
         </div>
+        <script src="lib/jquery/js/jquery-1.10.2.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#compteur').html(3);
+            });
+        </script>
     </body>
 </html>
