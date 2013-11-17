@@ -10,9 +10,8 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-xs-6 col-md-4"></div>
-                <div class="col-xs-6 col-md-4" class="text-center">
-                    <h2 class="align-center">Ils ont adhéré</h2>                    
+                <div class="col-xs-6 col-md-4 col-md-offset-4">
+                    <h2>Ils ont adhéré</h2>                    
                     <br>
                     <div id="liste" class="well">
                         
@@ -21,7 +20,6 @@
                         
                     </div>
                 </div>
-                <div class="col-xs-6 col-md-4"></div>
             </div>
         </div>
         <script src="lib/jquery/js/jquery-1.10.2.min.js"></script>        		
