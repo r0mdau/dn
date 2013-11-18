@@ -12,7 +12,7 @@
             $entreprise_id = EntrepriseModel::getId($_POST['entreprise']);
         }
         
-        $adherent = new Adherent($_POST['prenom'], $_POST['nom'], $entreprise_id);
+        $adherent = new Adherent(0, $_POST['prenom'], $_POST['nom'], $entreprise_id);
         if(AdherentModel::add($adherent)){
             header('Location:merci');
         }else{

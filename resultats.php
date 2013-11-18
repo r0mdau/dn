@@ -33,16 +33,32 @@
                         clockFace: 'Counter'
                 });
                 
-                actualiserCompteur();
+                actualiserCompteurEtAdherents();
             });
             
-            function actualiserCompteur(){                
+            function actualiserCompteurEtAdherents(){
+                $.ajax({
+                    url : "ajaj/listeAdherents.php"
+                }).done(function(infos){
+                    var adherent = JSON.parse(infos);
+                    $('#liste').append(blocquote(adherent));
+                    $('.new').show("slow");
+                });
+                
                 $.ajax({
                     url : "ajaj/compteur.php"                    
                 }).done(function(res){
                     clock.setValue(res);
                 });
-                setTimeout(actualiserCompteur, 1000);
+                setTimeout(actualiserCompteurEtAdherents, 1000);
+            }
+            
+            function blocquote(adherent){
+                var bloc = "<blockquote style=\"display:none\" class=\"new\">";
+                bloc += "<p>"+adherent.prenom+" "+adherent.nom+"</p>";
+                bloc += "<small>"+adherent.entreprise+"</small>";
+                bloc += "</blockquote><hr>";
+                return bloc;
             }
         </script>
     </body>

@@ -15,13 +15,20 @@
         }
         
         public static function exist($entreprise){
-            $var = Db::querySingle('SELECT id FROM entreprise WHERE nom=\''.$entreprise.'\'');
-            return isset($var->id);
+            $res = Db::querySingle('SELECT id FROM entreprise WHERE nom=\''.$entreprise.'\'');
+            return isset($res->id);
+        }
+        
+        public static function get($id){
+            $res = Db::querySingle('SELECT * FROM entreprise WHERE id=\''.$id.'\'');
+            if(isset($res->id)){
+                return new Entreprise($res->nom);
+            }else return null;
         }
         
         public function getId($entreprise){
-            $var = Db::querySingle('SELECT id FROM entreprise WHERE nom=\''.$entreprise.'\'');
-            return isset($var->id) ? $var->id : null;
+            $res = Db::querySingle('SELECT id FROM entreprise WHERE nom=\''.$entreprise.'\'');
+            return isset($res->id) ? $res->id : null;
         }
         
         private static $lastId;

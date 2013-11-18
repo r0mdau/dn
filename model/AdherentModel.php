@@ -13,7 +13,19 @@
         
         public static function getPremierNouveau(){
             $res = Db::querySingle('SELECT * FROM adherent WHERE etat=1 ORDER BY date LIMIT 1');
-            return isset($res->id) ? new Adherent($res->id, $res->prenom, $res->nom, $res->id_entreprise, $res->etat, $res->date) : '';
+            if(isset($res->id)){
+                self::changeEtat($res->id, 0);
+                return new Adherent($res->id, $res->prenom, $res->nom, $res->id_entreprise, $res->etat, $res->date);
+            }else return null;
+        }
+        
+        public static function getPremierNouveauEnJson(){
+            $res = Db::queryArray('SELECT * FROM adherent WHERE etat=1 ORDER BY date LIMIT 1');
+            if(isset($res[0]['id'])){
+                self::changeEtat($res[0]['id'], 0);
+                $res[0]['entreprise'] = EntrepriseModel::get($res[0]['id_entreprise'])->getNom();
+                return json_encode($res[0]);
+            }else return null;            
         }
         
         public static function nombreTotal(){
