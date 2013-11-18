@@ -8,11 +8,13 @@ session_start();
         <meta charset="utf-8">
         <title>Adhésion Destinées Numériques</title>
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="lib/dn/css/dn.css">
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-xs-6 col-md-4 col-md-offset-4">
+                <div class="col-xs-12 col-sm-4 col-md-offset-4">
+                    <img src="lib/dn/img/Logo_DN3.jpg" alt="Logo destinées numériques" class="img-responsive">
                     <h2 class="align-center">Formulaire d'adhésion</h2><br>
                     <form class="form-horizontal" role="form" method="post" action="post.php">
                         <div class="form-group">

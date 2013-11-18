@@ -5,20 +5,26 @@
         <meta charset="utf-8">
         <title>Destinées Numériques</title>
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="lib/dn/css/dn.css">
         <link rel="stylesheet" href="lib/flipclock/css/flipclock.css">
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-xs-6 col-md-4 col-md-offset-4">
-                    <h2>Ils ont adhéré</h2>                    
+                <div class="col-xs-12 col-sm-4 col-md-offset-4">
+                    <img src="lib/dn/img/Logo_DN3.jpg" alt="Logo destinées numériques" class="img-responsive">
+                    <div class="row">
+                        <div class="col-sm-4">
+                          <h2>Adherents</h2>
+                        </div>
+                        <div class="col-sm-8">
+                            <div id="compteur"></div>
+                        </div>
+                    </div>
                     <br>
                     <div id="liste" class="well">
                         
-                    </div>
-                    <div id="compteur">
-                        
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>
