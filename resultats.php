@@ -34,7 +34,7 @@
         <script src="lib/flipclock/js/faces/counter.js"></script>	
         <script>
             var clock;
-            var time = 5000;
+            var time = 7000;
             var nombre = 7;
             $(document).ready(function(){
                 clock = $('#compteur').FlipClock(0, {

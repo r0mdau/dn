@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('autoload.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -9,6 +10,7 @@ session_start();
         <title>Adhésion Destinées Numériques</title>
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="lib/dn/css/dn.css">
+        <link rel="stylesheet" href="lib/twitter/css/typeahead.js-bootstrap.css">            
     </head>
     <body>
         <div class="container">
@@ -43,6 +45,20 @@ session_start();
                     </form>
                 </div>
             </div>
-        </div>  
+        </div>
+        <script src="lib/jquery/js/jquery-1.10.2.min.js"></script>
+        <script src="lib/twitter/js/typeahead.min.js"></script> 
+        <script>
+            $(document).ready(function(){
+                $('input#inputEntreprise').typeahead({                                   
+                    name: 'entreprises',                                                             
+                    local: [
+                        <?=EntrepriseModel::getAllToTypeahead();?>
+                    ]                                                                           
+                });
+                $('.tt-hint').hide();
+                $('.twitter-typeahead').attr('style', 'width:100%');
+            });            
+        </script>
     </body>
 </html>

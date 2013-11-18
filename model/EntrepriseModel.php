@@ -26,10 +26,22 @@
             }else return null;
         }
         
-        public function getId($entreprise){
+        public static function getId($entreprise){
             $res = Db::querySingle('SELECT id FROM entreprise WHERE nom=\''.$entreprise.'\'');
             return isset($res->id) ? $res->id : null;
         }
+        
+        public static function getAllToTypeahead(){
+            $var = '';
+            $res = Db::queryObject('SELECT nom FROM entreprise');
+            if(isset($res[0])){
+                foreach($res as $entreprise){
+                    $var .= '"'.$entreprise->nom.'",';
+                }
+            }            
+            $var = substr($var, 0, -1);
+            return $var;
+        }        
         
         private static $lastId;
     }
