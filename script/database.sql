@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `adherent` (
   `id_entreprise` int(11) NOT NULL,
   `etat` int(1) NOT NULL DEFAULT '1',
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `parution` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `id_entreprise` (`id_entreprise`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;

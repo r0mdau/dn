@@ -1,11 +1,12 @@
 <?php
 class Adherent{
-    public function __construct($id, $prenom, $nom, $idEntreprise, $etat = 1){
+    public function __construct($id, $prenom, $nom, $idEntreprise, $etat = 1, $parution = 0){
         $this->id = $id;
         $this->prenom = $prenom;
         $this->nom = $nom;        
         $this->idEntreprise = $idEntreprise;
         $this->etat = $etat;
+        $this->parution = $parution;
     }
     
     public function getId(){
@@ -36,9 +37,18 @@ class Adherent{
         $this->etat = $etat;
     }
     
+    public function getParution(){
+        return $this->parution;
+    }
+    
+    public function setParution($nombre){
+        $this->parution = $nombre;
+    }
+    
     private $id;
     private $prenom;
     private $nom;    
     private $idEntreprise;
     private $etat;          // 1 pour nouvel inscrit
+    private $parution;
 }

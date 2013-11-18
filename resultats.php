@@ -34,6 +34,7 @@
         <script src="lib/flipclock/js/faces/counter.js"></script>	
         <script>
             var clock;
+            var time = 5000;
             $(document).ready(function(){
                 clock = $('#compteur').FlipClock(0, {
                         clockFace: 'Counter'
@@ -48,7 +49,12 @@
                 }).done(function(infos){
                     var adherent = JSON.parse(infos);
                     $('#liste').prepend(blocquote(adherent));
-                    $('.new').show('slow').attr('class', '');
+                    $('.a5').hide('slow');
+                    $('.a4').show('slow').attr('class', 'a5');
+                    $('.a3').show('slow').attr('class', 'a4');
+                    $('.a2').show('slow').attr('class', 'a3');                    
+                    $('.a1').show('slow').attr('class', 'a2');
+                    $('.new').show('slow').attr('class', 'a1');
                 });
                 
                 $.ajax({
@@ -56,7 +62,7 @@
                 }).done(function(res){
                     clock.setValue(res);
                 });
-                setTimeout(actualiserCompteurEtAdherents, 1000);
+                setTimeout(actualiserCompteurEtAdherents, time);
             }
             
             function blocquote(adherent){

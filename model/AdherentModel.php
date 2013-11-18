@@ -8,7 +8,7 @@
         
         public static function get($id = 0){
             $res = Db::querySingle('SELECT * FROM adherent WHERE id='.$id);
-            return isset($res->id) ? new Adherent($res->id, $res->prenom, $res->nom, $res->id_entreprise, $res->etat, $res->date) : '';
+            return isset($res->id) ? new Adherent($res->id, $res->prenom, $res->nom, $res->id_entreprise, $res->etat, $res->parution) : '';
         }
         
         public static function getPremierNouveau(){
@@ -23,6 +23,17 @@
             $res = Db::queryArray('SELECT * FROM adherent WHERE etat=1 ORDER BY date LIMIT 1');
             if(isset($res[0]['id'])){
                 self::changeEtat($res[0]['id'], 0);
+                self::incrementeParution($res[0]['id']);
+                $res[0]['entreprise'] = EntrepriseModel::get($res[0]['id_entreprise'])->getNom();
+                return json_encode($res[0]);
+            }else return null;            
+        }
+        
+        public static function getPremierNouveauEnJsonMoinsParu(){
+            $res = Db::queryArray('SELECT * FROM adherent WHERE etat=0 ORDER BY parution, date LIMIT 1');
+            if(isset($res[0]['id'])){
+                self::changeEtat($res[0]['id'], 0);
+                self::incrementeParution($res[0]['id']);
                 $res[0]['entreprise'] = EntrepriseModel::get($res[0]['id_entreprise'])->getNom();
                 return json_encode($res[0]);
             }else return null;            
@@ -40,5 +51,9 @@
         
         public static function changeEtat($id, $etat){
             return Db::query('UPDATE adherent SET etat='.$etat.' WHERE id='.$id);
+        }
+        
+        public static function incrementeParution($id){
+            return Db::query('UPDATE adherent SET parution=parution+1 WHERE id='.$id);
         }
     }

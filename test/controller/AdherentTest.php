@@ -49,11 +49,25 @@ class AdherentTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(0, $this->adherent->getEtat());
     }
     
+    public function testJePeuxRecupererLaParutionDunAdherent(){
+        $this->assertEquals(0, $this->adherent->getParution());
+        
+        $this->adherent = new Adherent(1, 'Philippe', 'Dupont', 15, 0, 89);
+        $this->assertEquals(89, $this->adherent->getParution());
+    }
+    
     public function testJePeuxChangerLEtatDunAdherent(){
         $this->assertEquals(1, $this->adherent->getEtat());
         
         $this->adherent->setEtat(0);
         $this->assertEquals(0, $this->adherent->getEtat());
+    }
+    
+    public function testJePeuxChangerLaParutionDunAdherent(){
+        $this->assertEquals(0, $this->adherent->getParution());
+        
+        $this->adherent->setParution(89);
+        $this->assertEquals(89, $this->adherent->getParution());
     }
     
     private $adherent;

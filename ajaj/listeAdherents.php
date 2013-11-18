@@ -1,4 +1,7 @@
 <?php
 require_once('../autoload.php');
-echo AdherentModel::getPremierNouveauEnJson();
+if(AdherentModel::nombreTotalNouveaux() > 0)
+    echo AdherentModel::getPremierNouveauEnJson();
+else
+    echo AdherentModel::getPremierNouveauEnJsonMoinsParu();
 exit;
