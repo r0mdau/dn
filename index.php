@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -15,19 +18,19 @@
                         <div class="form-group">
                             <label for="inputPrenom" class="col-sm-3 control-label">Prénom</label>
                             <div class="col-sm-9">
-                                <input type="text" name="prenom" class="form-control" id="inputPrenom" placeholder="Prénom">
+                                <input type="text" name="prenom" class="form-control" id="inputPrenom" placeholder="Prénom" value="<?=(isset($_SESSION['prenom']) ? $_SESSION['prenom'] : '')?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputNom" class="col-sm-3 control-label">Nom</label>
                             <div class="col-sm-9">
-                                <input type="text" name="nom" class="form-control" id="inputNom" placeholder="Nom">
+                                <input type="text" name="nom" class="form-control" id="inputNom" placeholder="Nom" value="<?=(isset($_SESSION['nom']) ? $_SESSION['nom'] : '')?>">
                             </div>
                         </div>                        
                         <div class="form-group">
                             <label for="inputEntreprise" class="col-sm-3 control-label">Entreprise</label>
                             <div class="col-sm-9">
-                                <input type="text" name="entreprise" class="form-control" id="inputEntreprise" placeholder="Entreprise">
+                                <input type="text" name="entreprise" class="form-control" id="inputEntreprise" placeholder="Entreprise" value="<?=(isset($_SESSION['entreprise']) ? $_SESSION['entreprise'] : '')?>">
                             </div>
                         </div>
                         <div class="form-group">
