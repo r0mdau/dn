@@ -41,8 +41,8 @@
                     url : "ajaj/listeAdherents.php"
                 }).done(function(infos){
                     var adherent = JSON.parse(infos);
-                    $('#liste').append(blocquote(adherent));
-                    $('.new').show("slow");
+                    $('#liste').prepend(blocquote(adherent));
+                    $('.new').show('slow').attr('class', '');
                 });
                 
                 $.ajax({
@@ -57,7 +57,7 @@
                 var bloc = "<blockquote style=\"display:none\" class=\"new\">";
                 bloc += "<p>"+adherent.prenom+" "+adherent.nom+"</p>";
                 bloc += "<small>"+adherent.entreprise+"</small>";
-                bloc += "</blockquote><hr>";
+                bloc += "</blockquote>";
                 return bloc;
             }
         </script>
