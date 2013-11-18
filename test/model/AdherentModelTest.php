@@ -52,6 +52,13 @@ class AdherentModelTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('Dupont', $premierInscrit->getNom());
     }
     
+    public function testJePeuxRecupererLeNombreDeNouveauxAdherents(){
+        $this->assertEquals(1, AdherentModel::nombreTotalNouveaux());
+        $adherent = new Adherent(2, 'Georges', 'Lucas', $this->adherent->getIdEntreprise());
+        AdherentModel::add($this->adherent);
+        $this->assertEquals(2, AdherentModel::nombreTotalNouveaux());
+    }
+    
     private $adherent;
     private $entreprise;
 }

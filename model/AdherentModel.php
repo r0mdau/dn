@@ -33,6 +33,11 @@
             return isset($res->nb) ? $res->nb : 0;
         }
         
+        public static function nombreTotalNouveaux(){
+            $res = Db::querySingle('SELECT COUNT(*) nb FROM adherent WHERE etat=1');
+            return isset($res->nb) ? $res->nb : 0;
+        }
+        
         public static function changeEtat($id, $etat){
             return Db::query('UPDATE adherent SET etat='.$etat.' WHERE id='.$id);
         }
