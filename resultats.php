@@ -35,6 +35,7 @@
         <script>
             var clock;
             var time = 5000;
+            var nombre = 7;
             $(document).ready(function(){
                 clock = $('#compteur').FlipClock(0, {
                         clockFace: 'Counter'
@@ -49,11 +50,10 @@
                 }).done(function(infos){
                     var adherent = JSON.parse(infos);
                     $('#liste').prepend(blocquote(adherent));
-                    $('.a5').hide('slow');
-                    $('.a4').show('slow').attr('class', 'a5');
-                    $('.a3').show('slow').attr('class', 'a4');
-                    $('.a2').show('slow').attr('class', 'a3');                    
-                    $('.a1').show('slow').attr('class', 'a2');
+                    $(".a"+nombre).hide("slow");
+                    for(i = nombre - 1; i > 0; i--){
+                        $(".a"+i).show("slow").attr("class", "a"+(i+1));
+                    }
                     $('.new').show('slow').attr('class', 'a1');
                 });
                 
