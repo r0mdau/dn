@@ -3,32 +3,34 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta charset="utf-8">
-        <title>Adhésion</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <title>Adhésion Destinées Numériques</title>
+        <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../lib/dn/css/dn.css">
+        <link rel="stylesheet" href="../../lib/twitter/css/typeahead.js-bootstrap.css">            
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-xs-6 col-md-4"></div>
-                <div class="col-xs-6 col-md-4">
+                <div class="col-xs-12 col-sm-4 col-md-offset-4">
+                    <img src="../../lib/dn/img/Logo_DN3.jpg" alt="Logo destinées numériques" class="img-responsive">
                     <h2 class="align-center">Formulaire d'adhésion</h2><br>
                     <form class="form-horizontal" role="form" method="post" action="post.php">
                         <div class="form-group">
                             <label for="inputPrenom" class="col-sm-3 control-label">Prénom</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputPrenom" placeholder="Prénom">
+                                <input type="text" name="prenom" class="form-control" id="inputPrenom" placeholder="Prénom">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputNom" class="col-sm-3 control-label">Nom</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputNom" placeholder="Nom">
+                                <input type="text" name="nom" class="form-control" id="inputNom" placeholder="Nom">
                             </div>
                         </div>                        
                         <div class="form-group">
                             <label for="inputEntreprise" class="col-sm-3 control-label">Entreprise</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputEntreprise" placeholder="Entreprise">
+                                <input type="text" name="entreprise" class="form-control" id="inputEntreprise" placeholder="Entreprise">
                             </div>
                         </div>
                         <div class="form-group">
@@ -38,7 +40,6 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-xs-6 col-md-4"></div>
             </div>
         </div>
     </body>
