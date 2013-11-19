@@ -25,6 +25,7 @@
                 self::changeEtat($res[0]['id'], 0);
                 self::incrementeParution($res[0]['id']);
                 $res[0]['entreprise'] = EntrepriseModel::get($res[0]['id_entreprise'])->getNom();
+                $res[0]['nouveau'] = 1;
                 return json_encode($res[0]);
             }else return null;            
         }
@@ -35,6 +36,7 @@
                 self::changeEtat($res[0]['id'], 0);
                 self::incrementeParution($res[0]['id']);
                 $res[0]['entreprise'] = EntrepriseModel::get($res[0]['id_entreprise'])->getNom();
+                $res[0]['nouveau'] = 0;
                 return json_encode($res[0]);
             }else return null;            
         }

@@ -66,8 +66,16 @@
             }
             
             function blocquote(adherent){
-                var bloc = "<blockquote style=\"display:none\" class=\"new\">";
-                bloc += "<p>"+adherent.prenom+" "+adherent.nom+"</p>";
+                var bloc = "<blockquote style=\"display:none\" class=\"new";                
+                if (adherent.nouveau == 1) {
+                    bloc += " pull-right"
+                }
+                bloc += "\" >";
+                bloc += "<p";
+                if (adherent.nouveau == 1) {
+                    bloc += " style=\"color:#39b3d7\" ";
+                }                
+                bloc += ">"+adherent.prenom+" "+adherent.nom+"</p>";
                 bloc += "<small>"+adherent.entreprise+"</small>";
                 bloc += "</blockquote>";
                 return bloc;
