@@ -15,25 +15,25 @@ require_once('autoload.php');
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-offset-4">
+                <div class="col-xs-12 col-sm-4 col-md-8 col-md-offset-2">
                     <img src="lib/dn/img/Logo_DN3.jpg" alt="Logo destinées numériques" class="img-responsive">
-                    <h2 class="align-center">Formulaire d'adhésion</h2><br>
+                    <h2 class="align-center col-sm-offset-3">Formulaire d'adhésion</h2><br>
                     <form class="form-horizontal" role="form" method="post" action="post.php">
                         <div class="form-group">
                             <label for="inputPrenom" class="col-sm-3 control-label">Prénom</label>
-                            <div class="col-sm-9">
+                            <div class="col-sm-6">
                                 <input type="text" name="prenom" class="form-control" id="inputPrenom" placeholder="Prénom" value="<?=(isset($_SESSION['prenom']) ? $_SESSION['prenom'] : '')?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputNom" class="col-sm-3 control-label">Nom</label>
-                            <div class="col-sm-9">
+                            <div class="col-sm-6">
                                 <input type="text" name="nom" class="form-control" id="inputNom" placeholder="Nom" value="<?=(isset($_SESSION['nom']) ? $_SESSION['nom'] : '')?>">
                             </div>
                         </div>                        
                         <div class="form-group">
                             <label for="inputEntreprise" class="col-sm-3 control-label">Entreprise</label>
-                            <div class="col-sm-9">
+                            <div class="col-sm-6">
                                 <input type="text" name="entreprise" class="form-control" id="inputEntreprise" placeholder="Entreprise" value="<?=(isset($_SESSION['entreprise']) ? $_SESSION['entreprise'] : '')?>">
                             </div>
                         </div>
