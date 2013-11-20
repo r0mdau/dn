@@ -52,9 +52,9 @@
                     $('#liste').prepend(blocquote(adherent));
                     $(".a"+nombre).hide("slow");
                     for(i = nombre - 1; i > 0; i--){
-                        $(".a"+i).show("slow").attr("class", "a"+(i+1));
+                        $(".a"+i).show("slow").attr("class", $(".a"+i).attr('class')+" a"+(i+1));
                     }
-                    $('.new').show('slow').attr('class', 'a1');
+                    $('.new').show('slow').attr('class', $('.new').attr('class')+' a1');
                 });
                 
                 $.ajax({
@@ -66,18 +66,16 @@
             }
             
             function blocquote(adherent){
-                var bloc = "<blockquote style=\"display:none\" class=\"new";                
-                if (adherent.nouveau == 1) {
-                    bloc += " pull-right"
-                }
-                bloc += "\" >";
+                var bloc = "<blockquote style=\"display:none\" class=\"new\" >";
                 bloc += "<p";
-                if (adherent.nouveau == 1) {
+                if (adherent.nouveau == 1)
                     bloc += " style=\"color:#39b3d7\" ";
-                }                
-                bloc += ">"+adherent.prenom+" "+adherent.nom+"</p>";
+                bloc += ">"+adherent.prenom+" "+adherent.nom;
+                if(adherent.nouveau == 1)
+                    bloc += "&nbsp;&nbsp;&nbsp;<img src=\"lib/dn/img/ajouter-en-plus-icone-7864-128.png\" alt=\"Un adherent\" width=\"27\" height=\"27\">";
+                bloc += "</p>";
                 bloc += "<small>"+adherent.entreprise+"</small>";
-                bloc += "</blockquote>";
+                bloc += "</blockquote><hr>";
                 return bloc;
             }
         </script>
