@@ -11,11 +11,10 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-offset-4">
+                <div class="col-xs-12 col-sm-4 col-md-8 col-md-offset-2">
                     <img src="lib/dn/img/Logo_DN3.jpg" alt="Logo destinées numériques" class="img-responsive">
                     <div class="row">
                         <div class="col-sm-4">
-                          <h2>Adherents</h2>
                         </div>
                         <div class="col-sm-8">
                             <div id="compteur"></div>
@@ -34,27 +33,49 @@
         <script src="lib/flipclock/js/faces/counter.js"></script>	
         <script>
             var clock;
-            var time = 7000;
+            var time = 10000;
             var nombre = 7;
             $(document).ready(function(){
                 clock = $('#compteur').FlipClock(0, {
                         clockFace: 'Counter'
                 });
                 
-                actualiserCompteurEtAdherents();
+                setTimer();
+                actualiserCompteurEtAdherents();                
             });
+            
+            function setTimer(){
+                $.ajax({
+                    url : "ajaj/compteurNouveaux.php"                    
+                }).done(function(res){
+                    if(res < 5)
+                        time = 10000;
+                    else if(res >= 5 && res < 10)
+                        time = 7000;
+                    else if(res >= 10 && res < 20)
+                        time = 5000;
+                    else if(res >= 20 && res < 50)
+                        time = 2000;
+                    else if(res >= 50)
+                        time = 1000;
+                });
+                console.log(time);
+                setTimeout(setTimer, 1000);
+            }
             
             function actualiserCompteurEtAdherents(){
                 $.ajax({
                     url : "ajaj/listeAdherents.php"
-                }).done(function(infos){
+                }).done(function(infos){                    
                     var adherent = JSON.parse(infos);
                     $('#liste').prepend(blocquote(adherent));
-                    $(".a"+nombre).hide("slow");
-                    for(i = nombre - 1; i > 0; i--){
-                        $(".a"+i).show("slow").attr("class", $(".a"+i).attr('class')+" a"+(i+1));
+                    $('.a'+nombre).hide('slow', function(){
+                        $(this).remove();
+                    });
+                    for(var i = nombre - 1; i > 0; i--){
+                        $(".a"+i).show("slow").attr("class", "a"+(i+1));
                     }
-                    $('.new').show('slow').attr('class', $('.new').attr('class')+' a1');
+                    $('.new').show('slow').attr('class', 'a1');
                 });
                 
                 $.ajax({
@@ -67,15 +88,16 @@
             
             function blocquote(adherent){
                 var bloc = "<blockquote style=\"display:none\" class=\"new\" >";
-                bloc += "<p";
+                bloc += "<p style=\"font-size:2em";
                 if (adherent.nouveau == 1)
-                    bloc += " style=\"color:#39b3d7\" ";
+                    bloc += ";color:#39b3d7";
+                bloc += "\"";
                 bloc += ">"+adherent.prenom+" "+adherent.nom;
                 if(adherent.nouveau == 1)
                     bloc += "&nbsp;&nbsp;&nbsp;<img src=\"lib/dn/img/ajouter-en-plus-icone-7864-128.png\" alt=\"Un adherent\" width=\"27\" height=\"27\">";
-                bloc += "</p>";
-                bloc += "<small>"+adherent.entreprise+"</small>";
-                bloc += "</blockquote><hr>";
+                bloc += "<span style=\"font-size:0.6em;color:grey\">&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;"+adherent.entreprise+"</span>";
+                bloc += "</p>";                
+                bloc += "</blockquote>";
                 return bloc;
             }
         </script>

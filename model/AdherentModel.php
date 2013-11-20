@@ -16,7 +16,7 @@
             if(isset($res->id)){
                 self::changeEtat($res->id, 0);
                 return new Adherent($res->id, $res->prenom, $res->nom, $res->id_entreprise, $res->etat, $res->date);
-            }else return null;
+            }else return '';
         }
         
         public static function getPremierNouveauEnJson(){
@@ -27,18 +27,18 @@
                 $res[0]['entreprise'] = EntrepriseModel::get($res[0]['id_entreprise'])->getNom();
                 $res[0]['nouveau'] = 1;
                 return json_encode($res[0]);
-            }else return null;            
+            }else return '';            
         }
         
         public static function getPremierNouveauEnJsonMoinsParu(){
-            $res = Db::queryArray('SELECT * FROM adherent WHERE etat=0 ORDER BY parution, date LIMIT 1');
+            $res = Db::queryArray('SELECT * FROM adherent WHERE etat=0 AND parution <= 10 ORDER BY parution, date LIMIT 1');
             if(isset($res[0]['id'])){
                 self::changeEtat($res[0]['id'], 0);
                 self::incrementeParution($res[0]['id']);
                 $res[0]['entreprise'] = EntrepriseModel::get($res[0]['id_entreprise'])->getNom();
                 $res[0]['nouveau'] = 0;
                 return json_encode($res[0]);
-            }else return null;            
+            }else return '';            
         }
         
         public static function nombreTotal(){
