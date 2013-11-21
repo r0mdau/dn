@@ -34,7 +34,7 @@
         <script>
             var clock;
             var time = 10000;
-            var nombre = 3;
+            var nombre = 5;
             $(document).ready(function(){
                 clock = $('#compteur').FlipClock(0, {
                         clockFace: 'Counter'
