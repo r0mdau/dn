@@ -34,7 +34,7 @@
         <script>
             var clock;
             var time = 10000;
-            var nombre = 7;
+            var nombre = 3;
             $(document).ready(function(){
                 clock = $('#compteur').FlipClock(0, {
                         clockFace: 'Counter'
@@ -59,18 +59,25 @@
                     else if(res >= 50)
                         time = 1000;
                 });
-                console.log(time);
                 setTimeout(setTimer, 1000);
             }
             
             function actualiserCompteurEtAdherents(){
                 $.ajax({
                     url : "ajaj/listeAdherents.php"
-                }).done(function(infos){                    
+                }).done(function(infos){
+                    if(infos == "") return;
                     var adherent = JSON.parse(infos);
-                    $('#liste').prepend(blocquote(adherent));
+                    $('#liste').prepend(blocquote(adherent));                    
                     $('.a'+nombre).hide('slow', function(){
                         $(this).remove();
+                        $.ajax({
+                            url : "ajaj/offScreen.php",
+                            type: "POST",
+                            data: {
+                                id : $(this).attr('alt')
+                            }
+                        });
                     });
                     for(var i = nombre - 1; i > 0; i--){
                         $(".a"+i).show("slow").attr("class", "a"+(i+1));
@@ -87,7 +94,7 @@
             }
             
             function blocquote(adherent){
-                var bloc = "<blockquote style=\"display:none\" class=\"new\" >";
+                var bloc = "<blockquote style=\"display:none\" class=\"new\" alt=\""+adherent.id+"\" >";
                 bloc += "<p style=\"font-size:2em";
                 if (adherent.nouveau == 1)
                     bloc += ";color:#39b3d7";

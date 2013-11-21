@@ -19,25 +19,26 @@
             }else return '';
         }
         
+        public static function getEnJson($res){
+            self::changeEtat($res[0]['id'], 0);
+            self::incrementeParution($res[0]['id']);
+            self::onScreen($res[0]['id']);
+            $res[0]['entreprise'] = EntrepriseModel::get($res[0]['id_entreprise'])->getNom();            
+            return $res[0];
+        }
+        
         public static function getPremierNouveauEnJson(){
             $res = Db::queryArray('SELECT * FROM adherent WHERE etat=1 ORDER BY date LIMIT 1');
             if(isset($res[0]['id'])){
-                self::changeEtat($res[0]['id'], 0);
-                self::incrementeParution($res[0]['id']);
-                $res[0]['entreprise'] = EntrepriseModel::get($res[0]['id_entreprise'])->getNom();
                 $res[0]['nouveau'] = 1;
-                return json_encode($res[0]);
+                return json_encode(self::getEnJson($res));
             }else return '';            
         }
         
         public static function getPremierNouveauEnJsonMoinsParu(){
-            $res = Db::queryArray('SELECT * FROM adherent WHERE etat=0 AND parution <= 10 ORDER BY parution, date LIMIT 1');
+            $res = Db::queryArray('SELECT * FROM adherent WHERE etat=0 AND on_screen = 0 ORDER BY parution, date LIMIT 1');
             if(isset($res[0]['id'])){
-                self::changeEtat($res[0]['id'], 0);
-                self::incrementeParution($res[0]['id']);
-                $res[0]['entreprise'] = EntrepriseModel::get($res[0]['id_entreprise'])->getNom();
-                $res[0]['nouveau'] = 0;
-                return json_encode($res[0]);
+                return json_encode(self::getEnJson($res));
             }else return '';            
         }
         
@@ -57,5 +58,13 @@
         
         public static function incrementeParution($id){
             return Db::query('UPDATE adherent SET parution=parution+1 WHERE id='.$id);
+        }
+        
+        public static function onScreen($id){
+            return Db::query('UPDATE adherent SET on_screen=1 WHERE id='.$id);
+        }
+        
+        public static function offScreen($id){
+            return Db::query('UPDATE adherent SET on_screen=0 WHERE id='.$id);
         }
     }
