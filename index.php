@@ -39,7 +39,7 @@ require_once('autoload.php');
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
-                                <button type="submit" class="btn btn-info">Adhérer</button>
+                                <button type="submit" class="btn btn-info">Je signe</button>
                             </div>
                         </div>
                     </form>
