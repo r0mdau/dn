@@ -7,7 +7,7 @@ require_once('autoload.php');
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta charset="utf-8">
-        <title>Adhésion Destinées Numériques</title>
+        <title>Destinées Numériques</title>
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="lib/dn/css/dn.css">
         <link rel="stylesheet" href="lib/twitter/css/typeahead.js-bootstrap.css">            
@@ -17,7 +17,7 @@ require_once('autoload.php');
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-8 col-md-offset-2">
                     <img src="lib/dn/img/Logo_DN3.jpg" alt="Logo destinées numériques" class="img-responsive">
-                    <h2 class="align-center col-sm-offset-3">Formulaire d'adhésion</h2><br>
+                    <h2 class="align-center col-sm-offset-3">Demain, on lance le pôle</h2><br>
                     <form class="form-horizontal" role="form" method="post" action="post.php">
                         <div class="form-group">
                             <label for="inputPrenom" class="col-sm-3 control-label">Prénom</label>
