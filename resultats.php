@@ -15,9 +15,13 @@
                     <img src="lib/dn/img/Logo_DN3.jpg" alt="Logo destinées numériques" class="img-responsive">
                     <div class="row">
                         <div class="col-sm-4">
+                            <h2>Vous êtes les</h2>
                         </div>
-                        <div class="col-sm-8">
-                            <div id="compteur"></div>
+                        <div class="col-sm-4">                            
+                            <div id="compteur"></div>                            
+                        </div>
+                        <div class="col-sm-4">
+                            <h2>signataires</h2>
                         </div>
                     </div>
                     <br>
