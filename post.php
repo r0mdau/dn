@@ -36,5 +36,6 @@
     
     function formulaireComplet($array){
         return  isset($array['prenom']) AND isset($array['nom']) AND isset($array['entreprise']) AND isset($array['mail']) AND
-                !empty($array['prenom']) AND !empty($array['nom']) AND !empty($array['entreprise']) AND !empty($array['mail']);
+                !empty($array['prenom']) AND !empty($array['nom']) AND !empty($array['entreprise']) AND !empty($array['mail'])
+                AND Secu::regexMail($_POST['mail']);
     }
