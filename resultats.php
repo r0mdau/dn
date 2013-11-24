@@ -103,9 +103,10 @@
                 if (adherent.nouveau == 1)
                     bloc += ";color:#39b3d7";
                 bloc += "\"";
-                bloc += ">"+adherent.prenom+" "+adherent.nom;
+                bloc += ">";
                 if(adherent.nouveau == 1)
                     bloc += "&nbsp;&nbsp;&nbsp;<img src=\"lib/dn/img/ajouter-en-plus-icone-7864-128.png\" alt=\"Un adherent\" width=\"27\" height=\"27\">";
+                bloc += "&nbsp;&nbsp;"+adherent.prenom+" "+adherent.nom;                
                 bloc += "<span style=\"font-size:0.6em;color:grey\">&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;"+adherent.entreprise+"</span>";
                 bloc += "</p>";                
                 bloc += "</blockquote>";
