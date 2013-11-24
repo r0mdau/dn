@@ -15,6 +15,7 @@
         }
         
         $adherent = new Adherent(0, $_POST['prenom'], $_POST['nom'], $entreprise_id);
+        $adherent->setMail($_POST['mail']);
         if(AdherentModel::add($adherent)){
             header('Location:merci');
         }else{
@@ -27,11 +28,13 @@
             $_SESSION['nom'] = $_POST['nom'];
         if(isset($_POST['entreprise']) OR !empty($_POST['entreprise']))
             $_SESSION['entreprise'] = $_POST['entreprise'];
+        if(isset($_POST['mail']) OR !empty($_POST['mail']))
+            $_SESSION['mail'] = $_POST['mail'];
         header('Location:accueil');
     }
     exit;
     
     function formulaireComplet($array){
-        return  isset($array['prenom']) AND isset($array['nom']) AND isset($array['entreprise']) AND
-                !empty($array['prenom']) AND !empty($array['nom']) AND !empty($array['entreprise']);
+        return  isset($array['prenom']) AND isset($array['nom']) AND isset($array['entreprise']) AND isset($array['mail']) AND
+                !empty($array['prenom']) AND !empty($array['nom']) AND !empty($array['entreprise']) AND !empty($array['mail']);
     }

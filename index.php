@@ -38,6 +38,12 @@ require_once('autoload.php');
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="inputMail" class="col-sm-3 control-label">E-mail</label>
+                            <div class="col-sm-6">
+                                <input type="text" name="mail" class="form-control" id="inputMail" placeholder="E-mail" value="<?=(isset($_SESSION['mail']) ? $_SESSION['mail'] : '')?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <button type="submit" class="btn btn-info">Je signe</button>
                             </div>

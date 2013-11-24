@@ -2,10 +2,10 @@
 -- version 3.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Nov 15, 2013 at 06:50 PM
--- Server version: 5.5.31-0+wheezy1-log
--- PHP Version: 5.4.4-14+deb7u5
+-- Client: localhost
+-- Généré le: Dim 24 Novembre 2013 à 23:39
+-- Version du serveur: 5.5.31-0+wheezy1-log
+-- Version de PHP: 5.4.4-14+deb7u5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,31 +17,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `dn`
+-- Base de données: `dn`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `entreprise`
---
-
-CREATE TABLE IF NOT EXISTS `entreprise` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(100) CHARACTER SET utf8 NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `personne`
+-- Structure de la table `adherent`
 --
 
 CREATE TABLE IF NOT EXISTS `adherent` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `prenom` varchar(100) CHARACTER SET utf8 NOT NULL,
   `nom` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `mail` varchar(100) CHARACTER SET utf8 NOT NULL,
   `id_entreprise` int(11) NOT NULL,
   `etat` int(1) NOT NULL DEFAULT '1',
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -51,17 +40,29 @@ CREATE TABLE IF NOT EXISTS `adherent` (
   KEY `id_entreprise` (`id_entreprise`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+-- --------------------------------------------------------
+
 --
--- Constraints for dumped tables
+-- Structure de la table `entreprise`
+--
+
+CREATE TABLE IF NOT EXISTS `entreprise` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(100) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nom` (`nom`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contraintes pour les tables exportées
 --
 
 --
--- Constraints for table `personne`
+-- Contraintes pour la table `adherent`
 --
 ALTER TABLE `adherent`
   ADD CONSTRAINT `adherent_ibfk_1` FOREIGN KEY (`id_entreprise`) REFERENCES `entreprise` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
-ALTER TABLE  `entreprise` ADD UNIQUE (`nom`);
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
