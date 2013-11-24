@@ -22,25 +22,25 @@ require_once('autoload.php');
                         <div class="form-group">
                             <label for="inputPrenom" class="col-sm-3 control-label">Prénom</label>
                             <div class="col-sm-6">
-                                <input type="text" name="prenom" class="form-control" id="inputPrenom" placeholder="Prénom" value="<?=(isset($_SESSION['prenom']) ? $_SESSION['prenom'] : '')?>">
+                                <input type="text" name="prenom" class="form-control" maxlength="50" id="inputPrenom" placeholder="Prénom" value="<?=(isset($_SESSION['prenom']) ? $_SESSION['prenom'] : '')?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputNom" class="col-sm-3 control-label">Nom</label>
                             <div class="col-sm-6">
-                                <input type="text" name="nom" class="form-control" id="inputNom" placeholder="Nom" value="<?=(isset($_SESSION['nom']) ? $_SESSION['nom'] : '')?>">
+                                <input type="text" name="nom" class="form-control" maxlength="50" id="inputNom" placeholder="Nom" value="<?=(isset($_SESSION['nom']) ? $_SESSION['nom'] : '')?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputMail" class="col-sm-3 control-label">E-mail</label>
                             <div class="col-sm-6">
-                                <input type="text" name="mail" class="form-control" id="inputMail" placeholder="E-mail" value="<?=(isset($_SESSION['mail']) ? $_SESSION['mail'] : '')?>">
+                                <input type="text" name="mail" class="form-control" maxlength="50" id="inputMail" placeholder="E-mail" value="<?=(isset($_SESSION['mail']) ? $_SESSION['mail'] : '')?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEntreprise" class="col-sm-3 control-label">Entreprise</label>
                             <div class="col-sm-6">
-                                <input type="text" name="entreprise" class="form-control" id="inputEntreprise" placeholder="Entreprise" value="<?=(isset($_SESSION['entreprise']) ? $_SESSION['entreprise'] : '')?>">
+                                <input type="text" name="entreprise" class="form-control" maxlength="50" id="inputEntreprise" placeholder="Entreprise" value="<?=(isset($_SESSION['entreprise']) ? $_SESSION['entreprise'] : '')?>">
                             </div>
                         </div>                        
                         <div class="form-group">
