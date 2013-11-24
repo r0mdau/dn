@@ -30,12 +30,6 @@ require_once('autoload.php');
                             <div class="col-sm-6">
                                 <input type="text" name="nom" class="form-control" id="inputNom" placeholder="Nom" value="<?=(isset($_SESSION['nom']) ? $_SESSION['nom'] : '')?>">
                             </div>
-                        </div>                        
-                        <div class="form-group">
-                            <label for="inputEntreprise" class="col-sm-3 control-label">Entreprise</label>
-                            <div class="col-sm-6">
-                                <input type="text" name="entreprise" class="form-control" id="inputEntreprise" placeholder="Entreprise" value="<?=(isset($_SESSION['entreprise']) ? $_SESSION['entreprise'] : '')?>">
-                            </div>
                         </div>
                         <div class="form-group">
                             <label for="inputMail" class="col-sm-3 control-label">E-mail</label>
@@ -43,6 +37,12 @@ require_once('autoload.php');
                                 <input type="text" name="mail" class="form-control" id="inputMail" placeholder="E-mail" value="<?=(isset($_SESSION['mail']) ? $_SESSION['mail'] : '')?>">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="inputEntreprise" class="col-sm-3 control-label">Entreprise</label>
+                            <div class="col-sm-6">
+                                <input type="text" name="entreprise" class="form-control" id="inputEntreprise" placeholder="Entreprise" value="<?=(isset($_SESSION['entreprise']) ? $_SESSION['entreprise'] : '')?>">
+                            </div>
+                        </div>                        
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <button type="submit" class="btn btn-info">Je signe</button>
@@ -59,8 +59,8 @@ require_once('autoload.php');
                 echo '<script src="lib/dn/js/errorsInForm.js"></script>';
             }
         ?>
-        <script>
-            $(document).ready(function(){
+        <script>            
+            $(document).ready(function(){                
                 $('input#inputEntreprise').typeahead({                                   
                     name: 'entreprises',                                                             
                     local: [
