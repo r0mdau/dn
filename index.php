@@ -47,7 +47,12 @@ require_once('autoload.php');
             </div>
         </div>
         <script src="lib/jquery/js/jquery-1.10.2.min.js"></script>
-        <script src="lib/twitter/js/typeahead.min.js"></script> 
+        <script src="lib/twitter/js/typeahead.min.js"></script>
+        <?php
+            if(isset($_SESSION['nom'])){
+                echo '<script src="lib/dn/js/errorsInForm.js"></script>';
+            }
+        ?>
         <script>
             $(document).ready(function(){
                 $('input#inputEntreprise').typeahead({                                   
