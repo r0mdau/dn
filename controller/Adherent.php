@@ -7,6 +7,7 @@ class Adherent{
         $this->idEntreprise = $idEntreprise;
         $this->etat = $etat;
         $this->parution = $parution;
+        $this->mail = '';
     }
     
     public function getId(){
@@ -45,9 +46,18 @@ class Adherent{
         $this->parution = $nombre;
     }
     
+    public function getMail(){
+        return $this->mail;
+    }
+    
+    public function setMail($mail){
+        $this->mail = $mail;
+    }
+    
     private $id;
     private $prenom;
-    private $nom;    
+    private $nom;
+    private $mail;
     private $idEntreprise;
     private $etat;          // 1 pour nouvel inscrit
     private $parution;

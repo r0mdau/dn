@@ -70,5 +70,12 @@ class AdherentTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(89, $this->adherent->getParution());
     }
     
+    public function testJePeuxChangerLeMailDunAdherent(){
+        $this->assertEquals('', $this->adherent->getMail());
+        
+        $this->adherent->setMail('romain.dauby@epsi.fr');
+        $this->assertEquals('romain.dauby@epsi.fr', $this->adherent->getMail());
+    }
+    
     private $adherent;
 }
