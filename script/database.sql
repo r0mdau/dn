@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Dim 24 Novembre 2013 à 23:39
+-- Généré le: Lun 25 Novembre 2013 à 00:09
 -- Version du serveur: 5.5.31-0+wheezy1-log
 -- Version de PHP: 5.4.4-14+deb7u5
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `adherent` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `prenom` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `nom` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `mail` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `prenom` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `nom` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `mail` varchar(50) CHARACTER SET utf8 NOT NULL,
   `id_entreprise` int(11) NOT NULL,
   `etat` int(1) NOT NULL DEFAULT '1',
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -48,10 +48,10 @@ CREATE TABLE IF NOT EXISTS `adherent` (
 
 CREATE TABLE IF NOT EXISTS `entreprise` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `nom` varchar(50) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nom` (`nom`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Contraintes pour les tables exportées
