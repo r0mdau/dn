@@ -42,7 +42,7 @@ class AdherentTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(0, $this->adherent->getEtat());
     }    
     
-    public function testJePeuxRécupérerLEtatDunAdherent(){
+    public function testJePeuxRecupererLEtatDunAdherent(){
         $this->assertEquals(1, $this->adherent->getEtat());
         
         $this->adherent = new Adherent(1, 'Philippe', 'Dupont', 15, 0);
