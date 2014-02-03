@@ -1,7 +1,7 @@
 Destinées Numériques
 ==
 
-Projet HTML5, Bootstrap v3, PHP5 et SQL
+HTML5, Bootstrap v3, PHP5 et SQL
 
 ## What is it ?
 This is a quick project, a simple form and a magnificient result view.
